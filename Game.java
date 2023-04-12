@@ -25,16 +25,16 @@ public class Game
         System.out.println("Player Row: " + playerRow);
 
         int hp = player.getHp();
-        System.out.println("Player Lives: " + hp + "/1");
+        System.out.println("Player Lives: " + hp + "/10");
         
         
 //BIG BREAK OF TEXT SO I DONT LOSE MY MIND
 //
 //SPACED FOR YOUR PLEASURE
         AGAIN:
-        while(hp < 10){ //this while loop is for testing but I forgot how handy these loops are
+        while(tcount < 10){ //this while loop is for testing but I forgot how handy these loops are
            
-            System.out.println("Move Left, Right, Up, Down, or quit?");
+            System.out.println("Move Left, Right, Up, Down, or quit? (test case: take");
             String direction = Scan.nextLine().toLowerCase();
             System.out.println("direction input " + direction);
             if (direction.equals("up")) //NORTH
@@ -101,6 +101,12 @@ public class Game
                     continue AGAIN;
                 }
             }
+            else if (direction.equals("take"))
+            {
+                System.out.println("health taken");
+                
+            }
+                    
             else //BAD INPUT
             {
                 System.out.println("Invalid move. Please try again");
@@ -115,7 +121,7 @@ public class Game
             System.out.println("test count " + tcount);
         }
         
-       //save text line to make sure stuff is saving
+       //save text line to make sure stuff is saving (last left off trying to add a damage tester)
     }
 
 }
