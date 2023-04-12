@@ -2,7 +2,7 @@ package com.mycompany.game;
 //import java.util.Random;
 public class Player {
     
-    private int health = 1;
+    private int health = 10;
     private int playerHp;
     boolean is_alive = true;
     private int Row = 1;
