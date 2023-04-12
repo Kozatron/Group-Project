@@ -8,29 +8,30 @@ public abstract class risksRewards {
     int X;
     int Y;
     boolean isCollected;
-    int pointsAddorSub;
-    int healthAddorSub;
+    int pointCarried;
+    int rawRep;
+    char symbolicRep;
     
     
     public risksRewards(int x, int y){
         X = x;
         Y = y;
-        isCollected = false;
-        pointsAddorSub = 0;
-        healthAddorSub = 0;
+        isCollected = false;  
+        pointCarried = 0;
+        rawRep = 2;
+        symbolicRep = '!';
     }
     
-    
-    
-    public int getX(){
-        return X;
-    }
-    
-    public int getY(){
-        return Y;
-    }
-    
+   // public abstract void setPOS();
+   // ^ might be arbitrary due to the constructor thats sets position in the first place
+    public abstract void setPoints();
+    public abstract void testPOS(int x, int y); 
+    public abstract int getX(); 
+    public abstract int getY();
+    public abstract void addPoints();
+    public abstract void onceCollected();
     
     
     
 }
+
