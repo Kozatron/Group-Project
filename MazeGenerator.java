@@ -13,7 +13,22 @@ public class MazeGenerator {
         maze = new int[dim][dim];
         dimension = dim;
     }
-
+    
+    public void printMazeWithCharacter(int row, int col, char character) {
+    for (int i = 0; i < dimension; i++) {
+        for (int j = 0; j < dimension; j++) {
+            if (i == row && j == col) {
+                System.out.print(character + "  ");
+            } 
+            else {
+                System.out.print(maze[i][j] == 1 ? " " : "#");
+                System.out.print("  ");
+            }
+        }
+        System.out.println();
+        }
+    }
+    
     public void generateMaze() {
         stack.push(new Node(0,0));
         while (!stack.empty()) {
@@ -78,7 +93,15 @@ public class MazeGenerator {
         }
         return neighbors;
     }
-
+    
+   
+    public boolean isWall(int row, int col){
+        return maze[row][col] == 1;
+    }
+    public boolean isPath(int row, int col) {
+        return maze[row][col] == 0;
+    }
+    
     private Boolean pointOnGrid(int x, int y) {
         return x >= 0 && y >= 0 && x < dimension && y < dimension;
     }
@@ -90,5 +113,6 @@ public class MazeGenerator {
     private Boolean pointNotNode(Node node, int x, int y) {
         return !(x == node.x && y == node.y);
     }
+    
     
 }
