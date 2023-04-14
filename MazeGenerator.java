@@ -18,7 +18,7 @@ public class MazeGenerator {
     for (int i = 0; i < dimension; i++) {
         for (int j = 0; j < dimension; j++) {
             if (i == row && j == col) {
-                System.out.print(character + "  ");
+                System.out.print(character + " ");
             } 
             else {
                 System.out.print(maze[i][j] == 1 ? " " : "#");
@@ -54,7 +54,7 @@ public class MazeGenerator {
         for (int i = 0; i < dimension; i++) {
             for (int j = 0; j < dimension; j++) {
                 sb.append(maze[i][j] == 1 ? " " : "#");
-                sb.append("  "); 
+                sb.append(" "); 
             }
             sb.append("\n");
         }
@@ -96,8 +96,9 @@ public class MazeGenerator {
     
    
     public boolean isWall(int row, int col){
-        return maze[row][col] == 1;
+        return maze[row][col] == 0;
     }
+    
     public boolean isPath(int row, int col) {
         return maze[row][col] == 0;
     }
