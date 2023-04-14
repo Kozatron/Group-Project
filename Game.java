@@ -19,6 +19,7 @@ public class Game
         //System.out.println("RAW MAZE\n" + mazeGenerator.getRawMaze());
         //System.out.println("SYMBOLIC MAZE\n" + mazeGenerator.getSymbolicMaze());
         
+        Node node = new Node(30, 1);
         Scanner Scan = new Scanner(System.in);
         Player player = new Player(30, 1);
         
@@ -30,21 +31,22 @@ public class Game
 
         int hp = player.getHp();
         System.out.println("Player Lives: " + hp + "/10");
-        boolean isWall = mazeGenerator.isWall(pRow, pCol);
         
+        boolean isWall = mazeGenerator.isWall(pRow +1, pCol +1);
+        System.out.println(isWall);
 //BIG BREAK OF TEXT SO I DONT LOSE MY MIND
 //
 //SPACED FOR YOUR PLEASURE
         AGAIN:
         while(tcount < 10 || timer == 0){ //this while loop is for testing but I forgot how handy these loops are
            
-            System.out.println("Move Left, Right, Up, Down, or quit? (test case: take");
+            System.out.println("Move Left, Right, Up, Down, or quit? (test case: take)");
             String direction = Scan.nextLine().toLowerCase();
             System.out.println("direction input " + direction);
             if (direction.equals("up")) //NORTH
             {
                 
-                if (player.getRow() >= 30 ||isWall == true){
+                if (player.getRow() > 30 || isWall== true){
                     System.out.println("This move is invalid: Either off the Map or Collision with a wall");
                     continue AGAIN;
                 }
@@ -54,34 +56,29 @@ public class Game
                     player.setRow(player.getRow() + 1);
                     System.out.println("Player Column: " + player.getPlayerCol());
                     System.out.println("Player Row: " + player.getPlayerRow());
+                    System.out.println("isWall " + isWall);
                 }
             }
             else if (direction.equals("down")) //SOUTH
             {
-                if (player.getRow() >= 30 ||isWall == true){
+                if (player.getRow() < 1 || isWall == true){
                     System.out.println("This move is invalid: Either off the Map or Collision with a wall");
                     continue AGAIN;
                 }
-                else if (isWall == true){
-                    System.out.println("This move is invalid");
-                    continue AGAIN;
-                }
+
                 else{
                     pRow += 1;
                     mazeGenerator.printMazeWithCharacter(pRow, pCol, '@');
                     player.setRow(player.getRow() - 1);
                     System.out.println("Player Column: " + player.getPlayerCol());
                     System.out.println("Player Row: " + player.getPlayerRow());
+                    System.out.println("isWall " + isWall);
                 }
             }
             else if (direction.equals("right")) //EAST
             {
-                if (player.getRow() >= 30 ||isWall == true){
+                if (player.getCol() > 30 || isWall == true){
                     System.out.println("This move is invalid: Either off the Map or Collision with a wall");
-                    continue AGAIN;
-                }
-                else if (isWall == true){
-                    System.out.println("This move is invalid");
                     continue AGAIN;
                 }
                 else{
@@ -89,26 +86,25 @@ public class Game
                     mazeGenerator.printMazeWithCharacter(pRow, pCol, '@');
                     player.setCol(player.getCol() + 1);
                     System.out.println("Player Column: " + player.getPlayerCol());
-                    System.out.println("Player Row: " + player.getPlayerRow());  
+                    System.out.println("Player Row: " + player.getPlayerRow());
+                    System.out.println("isWall " + isWall);
                 }
                 
             }
             else if (direction.equals("left")) //WEST
             {
-                if (player.getRow() >= 30 ||isWall == true){
+                if (player.getRow() < 1 || isWall == true){
                     System.out.println("This move is invalid: Either off the Map or Collision with a wall");
                     continue AGAIN;
                 }
-                else if (isWall == true){
-                    System.out.println("This move is invalid");
-                    continue AGAIN;
-                }
+               
                 else{
                     pCol -= 1;
                     mazeGenerator.printMazeWithCharacter(pRow, pCol, '@');
                     player.setCol(player.getCol() - 1);
                     System.out.println("Player Column: " + player.getPlayerCol());
                     System.out.println("Player Row: " + player.getPlayerRow());
+                    System.out.println("isWall " + isWall);
                 }
             }
             else if (direction.equals("quit")){ //QUIT
@@ -142,7 +138,7 @@ public class Game
             System.out.println("test count " + tcount);
         }
         
-       //save text line to make sure stuff is saving (added Collision detection)
+       //save text line to make sure stuff is saving (added Collision detection, not working though :/)
     }
 
 }
