@@ -1,0 +1,100 @@
+AGAIN:
+        while(tcount < 10 || timer == 0){ //this while loop is for testing but I forgot how handy these loops are
+           
+            System.out.println("Move Left, Right, Up, Down, or quit? (test case: take)");
+            String direction = Scan.nextLine().toLowerCase();
+            System.out.println("direction input " + direction);
+            if (direction.equals("up")) //NORTH
+            {
+                
+                if (player.getRow() > 29 || isWall== true){
+                    System.out.println("This move is invalid: Either off the Map or Collision with a wall");
+                    continue AGAIN;
+                }
+                else{
+                    pRow -= 1;
+                    mazeGenerator.printMazeWithCharacter(pRow, pCol, '@'); //NOTE the array and get collomn are different +1 for get row is up while +1 for printmaze with character is down.
+                    player.setRow(player.getRow() + 1);
+                    System.out.println("Player Column: " + player.getPlayerCol());
+                    System.out.println("Player Row: " + player.getPlayerRow());
+                    System.out.println("isWall " + isWall);
+                }
+            }
+            else if (direction.equals("down")) //SOUTH
+            {
+                if (player.getRow() < 1 || isWall == true){
+                    System.out.println("This move is invalid: Either off the Map or Collision with a wall");
+                    continue AGAIN;
+                }
+
+                else{
+                    pRow += 1;
+                    mazeGenerator.printMazeWithCharacter(pRow, pCol, '@');
+                    player.setRow(player.getRow() - 1);
+                    System.out.println("Player Column: " + player.getPlayerCol());
+                    System.out.println("Player Row: " + player.getPlayerRow());
+                    System.out.println("isWall " + isWall);
+                }
+            }
+            else if (direction.equals("right")) //EAST
+            {
+                if (player.getCol() > 30 || isWall == true){
+                    System.out.println("This move is invalid: Either off the Map or Collision with a wall");
+                    continue AGAIN;
+                }
+                else{
+                    pCol += 1;
+                    mazeGenerator.printMazeWithCharacter(pRow, pCol, '@');
+                    player.setCol(player.getCol() + 1);
+                    System.out.println("Player Column: " + player.getPlayerCol());
+                    System.out.println("Player Row: " + player.getPlayerRow());
+                    System.out.println("isWall " + isWall);
+                }
+                
+            }
+            else if (direction.equals("left")) //WEST
+            {
+                if (player.getRow() < 1 || isWall == true){
+                    System.out.println("This move is invalid: Either off the Map or Collision with a wall");
+                    continue AGAIN;
+                }
+               
+                else{
+                    pCol -= 1;
+                    mazeGenerator.printMazeWithCharacter(pRow, pCol, '@');
+                    player.setCol(player.getCol() - 1);
+                    System.out.println("Player Column: " + player.getPlayerCol());
+                    System.out.println("Player Row: " + player.getPlayerRow());
+                    System.out.println("isWall " + isWall);
+                }
+            }
+            else if (direction.equals("quit")){ //QUIT
+                System.out.println("Are you sure? all progress will be lost. (Yes or No)");
+                String quityn = Scan.nextLine().toLowerCase();
+                if (quityn.equals("yes"))
+                {
+                    break;
+                }
+                else{
+                    continue AGAIN;
+                }
+            }
+            else if (direction.equals("take"))
+            {
+                System.out.println("health taken");
+                
+            }
+                    
+            else //BAD INPUT
+            {
+                System.out.println("Invalid move. Please try again");
+                System.out.println("Player Column: " + playerCol);
+                System.out.println("Player Row: " + playerRow);
+                continue AGAIN;
+            }
+            
+            
+            
+            tcount += 1;
+            System.out.println("test count " + tcount);
+        }
