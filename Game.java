@@ -11,13 +11,13 @@ public class Game
         int pRow = 0;
         int pCol = 0;
         
-        int timer = 10; // temp for while
         int tcount = 0;
+        
         MazeGenerator mazeGenerator = new MazeGenerator(30);
         mazeGenerator.generateMaze();
         mazeGenerator.printMazeWithCharacter(pRow, pCol, '@'); //row col character
-        //System.out.println("RAW MAZE\n" + mazeGenerator.getRawMaze());
-        //System.out.println("SYMBOLIC MAZE\n" + mazeGenerator.getSymbolicMaze());
+        System.out.println("RAW MAZE\n" + mazeGenerator.getRawMaze());
+        System.out.println("SYMBOLIC MAZE\n" + mazeGenerator.getSymbolicMaze());
         
         Node node = new Node(30, 1);
         Scanner Scan = new Scanner(System.in);
@@ -34,19 +34,22 @@ public class Game
         
         boolean isWall = mazeGenerator.isWall(pRow +1, pCol +1);
         System.out.println(isWall);
+        
 //BIG BREAK OF TEXT SO I DONT LOSE MY MIND
 //
 //SPACED FOR YOUR PLEASURE
         AGAIN:
-        while(tcount < 10 || timer == 0){ //this while loop is for testing but I forgot how handy these loops are
+        while(tcount < 10){ //this while loop is for testing but I forgot how handy these loops are
            
             System.out.println("Move Left, Right, Up, Down, or quit? (test case: take)");
             String direction = Scan.nextLine().toLowerCase();
             System.out.println("direction input " + direction);
+            int nextX = player.getRow() + 1;
+            int nextY = player.getCol() + 1;
             if (direction.equals("up")) //NORTH
             {
                 
-                if (player.getRow() > 30 || isWall== true){
+                if (player.getRow() > 29 || isWall== true){
                     System.out.println("This move is invalid: Either off the Map or Collision with a wall");
                     continue AGAIN;
                 }
@@ -138,7 +141,21 @@ public class Game
             System.out.println("test count " + tcount);
         }
         
-       //save text line to make sure stuff is saving (added Collision detection, not working though :/)
+       //save text line to make sure stuff is saving (reworking maze, shoulc have easier time iwht collision detection)
+       /*
+       // Get the player's next position
+int nextX = player.getX() + dx;
+int nextY = player.getY() + dy;
+
+// Check if the next position is valid and not a wall
+if (nextX >= 0 && nextX < maze.length && nextY >= 0 && nextY < maze[0].length && maze[nextX][nextY] == 0) {
+    // Move the player to the next position
+    player.setX(nextX);
+    player.setY(nextY);
+} else {
+    // The next position is a wall, do not move the player
+}
+       */
     }
 
 }
