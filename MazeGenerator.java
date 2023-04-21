@@ -100,7 +100,7 @@ public class MazeGenerator {
     }
     
     public boolean isPath(int row, int col) {
-        return maze[row][col] == 0;
+        return maze[row][col] == 1;
     }
     
     private Boolean pointOnGrid(int x, int y) {
@@ -117,3 +117,4 @@ public class MazeGenerator {
     
     
 }
+
