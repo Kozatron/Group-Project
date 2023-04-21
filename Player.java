@@ -10,12 +10,18 @@ public class Player {
     private int playerRow;
     private int playerCol;
     private int points = 0;
-    public Player(int Row, int Col) {
+    public Player(int Row, int Col, int health, int points) {
         this.Row = Row;
         this.Col = Col;
         this.playerRow = Row;
         this.playerCol = Col;
         this.health = health;
+        this.points = points;
+    }
+    
+    public int getPoints()
+    {
+        return points;
     }
     
     public int getHp()
@@ -62,12 +68,6 @@ public class Player {
     public int getPlayerCol() {
         return playerCol;
     }
-    
-    public void mazeGet(){
-        MazeGenerator mazeGenerator = new MazeGenerator(30);
-        mazeGenerator.generateMaze();
-        
-    }
- 
-}   
+     
+}  
 
