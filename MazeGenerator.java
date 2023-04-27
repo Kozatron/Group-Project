@@ -13,7 +13,15 @@ public class MazeGenerator {
         maze = new int[dim][dim];
         dimension = dim;
     }
-    
+    int AppleX = rand.nextInt(29);
+    int AppleY = rand.nextInt(29);
+    int PairX = rand.nextInt(29);
+    int PairY = rand.nextInt(29);
+    int OrangeX = rand.nextInt(29);
+    int OrangeY = rand.nextInt(29);
+                 
+   
+
     public void printMazeWithCharacter(int row, int col, char character) {
     for (int i = 0; i < dimension; i++) {
         for (int j = 0; j < dimension; j++) {
