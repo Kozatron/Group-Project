@@ -56,7 +56,7 @@ public class Game
                     player.setRow(player.getRow() - 1);
                     System.out.println("Player Column: " + player.getPlayerCol());
                     System.out.println("Player Row: " + player.getPlayerRow());
-                    System.out.println("isWall " + isWall);
+                    //System.out.println("isWall " + isWall);
                     System.out.println("Lives = " + hp);
                     System.out.println("Score = " + points);
                 }
@@ -75,7 +75,7 @@ public class Game
                     player.setRow(player.getRow() + 1);
                     System.out.println("Player Column: " + player.getPlayerCol());
                     System.out.println("Player Row: " + player.getPlayerRow());
-                    System.out.println("isWall " + isWall);
+                    //System.out.println("isWall " + isWall);
                     System.out.println("Lives = " + hp);
                     System.out.println("Score = " + points);
                 }
@@ -94,7 +94,7 @@ public class Game
                     player.setCol(player.getCol() + 1);
                     System.out.println("Player Column: " + player.getPlayerCol());
                     System.out.println("Player Row: " + player.getPlayerRow());
-                    System.out.println("isWall " + isWall);
+                    //System.out.println("isWall " + isWall);
                     System.out.println("Lives = " + hp);
                     System.out.println("Score = " + points);
                 }
@@ -113,7 +113,7 @@ public class Game
                     player.setCol(player.getCol() - 1);
                     System.out.println("Player Column: " + player.getPlayerCol());
                     System.out.println("Player Row: " + player.getPlayerRow());
-                    System.out.println("isWall " + isWall);
+                    //System.out.println("isWall " + isWall);
                     System.out.println("Lives = " + hp);
                     System.out.println("Score = " + points);
                 }
