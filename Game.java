@@ -1,8 +1,5 @@
 package com.mycompany.game;
 
-//import java.io.File;
-//import java.util.Random;
-
 import java.util.Scanner;
 public class Game
 {
@@ -11,7 +8,7 @@ public class Game
         
         MazeGenerator mazeGenerator = new MazeGenerator(30);
         mazeGenerator.generateMaze();
-       \
+
         
         Node node = new Node(30, 1);
         Scanner Scan = new Scanner(System.in);
@@ -40,7 +37,7 @@ public class Game
         AGAIN:
         while(hp > 0){ //this while loop is for testing but I forgot how handy these loops are
            
-            System.out.println("Move Left, Right, Up, Down, or quit? (test case: take)");
+            System.out.println("Move Left, Right, Up, Down, or quit?");
             String direction = Scan.nextLine().toLowerCase();
             System.out.println("direction input " + direction);
             
@@ -132,11 +129,6 @@ public class Game
                     continue AGAIN;
                 }
             }
-            else if (direction.equals("take"))
-            {
-                hp -= 1;
-                System.out.println("health taken");
-            }
                   
             else //BAD INPUT
             {
@@ -155,7 +147,6 @@ public class Game
        // Get the player's next position
 int nextX = player.getX() + dx;
 int nextY = player.getY() + dy;
-
 // Check if the next position is valid and not a wall
 if (nextX >= 0 && nextX < maze.length && nextY >= 0 && nextY < maze[0].length && maze[nextX][nextY] == 0) {
     // Move the player to the next position
