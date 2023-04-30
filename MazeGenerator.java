@@ -49,25 +49,7 @@ public class MazeGenerator {
         }
     }
 
-    public String getRawMaze() {
-        StringBuilder sb = new StringBuilder();
-        for (int[] row : maze) {
-            sb.append(Arrays.toString(row) + "\n");
-        }
-        return sb.toString();
-    }
-
-    public String getSymbolicMaze() {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < dimension; i++) {
-            for (int j = 0; j < dimension; j++) {
-                sb.append(maze[i][j] == 1 ? " " : "#");
-                sb.append(" "); 
-            }
-            sb.append("\n");
-        }
-        return sb.toString();
-    }
+   
 
     private boolean validNextNode(Node node) {
         int numNeighboringOnes = 0;
@@ -111,7 +93,18 @@ public class MazeGenerator {
         return maze[row][col] == 1;
     }
     
- 
+     private Boolean pointOnGrid(int x, int y) {
+        return x >= 0 && y >= 0 && x < dimension && y < dimension;
+    }
+
+    private Boolean pointNotCorner(Node node, int x, int y) {
+        return (x == node.x || y == node.y);
+    }
+    
+    private Boolean pointNotNode(Node node, int x, int y) {
+        return !(x == node.x && y == node.y);
+    }
+    
     
 }
 
