@@ -111,18 +111,7 @@ public class MazeGenerator {
         return maze[row][col] == 1;
     }
     
-    private Boolean pointOnGrid(int x, int y) {
-        return x >= 0 && y >= 0 && x < dimension && y < dimension;
-    }
-
-    private Boolean pointNotCorner(Node node, int x, int y) {
-        return (x == node.x || y == node.y);
-    }
-    
-    private Boolean pointNotNode(Node node, int x, int y) {
-        return !(x == node.x && y == node.y);
-    }
-    
+ 
     
 }
 
