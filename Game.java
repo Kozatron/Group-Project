@@ -11,8 +11,7 @@ public class Game
         
         MazeGenerator mazeGenerator = new MazeGenerator(30);
         mazeGenerator.generateMaze();
-        System.out.println(mazeGenerator.getRawMaze());
-        System.out.println(mazeGenerator.getSymbolicMaze());
+       \
         
         Node node = new Node(30, 1);
         Scanner Scan = new Scanner(System.in);
